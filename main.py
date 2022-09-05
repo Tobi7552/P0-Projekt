@@ -28,9 +28,9 @@ treshold = (black + white) / 2
 
 
 rettelse_tilføj = 1.2
-# Write your program here.
-ev3.speaker.beep()
 
+
+# Write your program here.
 
 def klo(close):
      while True
@@ -38,11 +38,17 @@ def klo(close):
         robot.run(0, 0):
         #klo.run_target(500, 1000)
         klo.run_untill_stalled(500, duty_limit=70)
-        robot.run_target(500, -1000)
+        robot.run_target(500, 1000)
         robot.turn(180, then=stop.HOLD, wait=True)
 
 def klo(open):
-    
+    while True
+     touch.pressed():
+        robot.run(0, 0):
+        #klo.run_target(500, 1000)
+        klo.run_untill_stalled(500, duty_limit=70)
+        robot.run_target(500, -1000)
+        robot.turn(180, then=stop.HOLD, wait=True)
 
 def linje(test):
     while True
