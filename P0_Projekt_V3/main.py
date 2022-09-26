@@ -82,7 +82,7 @@ def level5():
     robot.straight(57)
     robot.turn(-90)
 
-def level6():
+def level6(x):
     robot.turn(10)
     robot.straight(110)
     robot.turn(-20)
@@ -91,7 +91,7 @@ def level6():
     while color.reflection() >= 55:
         linje(90,1)
     robot.straight(400)
-    robot.turn(-90)
+    robot.turn(x*90)
 
 def level7():
     robot.reset()
@@ -116,7 +116,7 @@ def level9():
     while klo_sensor.distance() > 575:
         robot.turn(-1)
     robot.turn(-10)
-    while klo_sensor.distance() >= 33:
+    while klo_sensor.distance() >= 33 and robot.distance() < 600:
         robot.drive(35,0)
     robot.drive(0,0)
     klo_motor.run_until_stalled(1000, then=Stop.BRAKE,duty_limit=100)
@@ -155,15 +155,15 @@ def level12():
     while robot.distance() < 40:
         linje(35,1)
     robot.turn(45)
-    robot.straight(20)
+    robot.straight(40)
     robot.turn(-45)
     while klo_sensor.distance() > 100:
         robot.drive(70,0)
     d = robot.distance()
     robot.turn(-45)
     while klo_sensor.distance() > 100:
-        robot.drive(70,5)
-    robot.turn(65)
+        robot.drive(70,3)
+    robot.turn(70)
     robot.straight(250)
     robot.turn(-robot.angle())
     robot.straight(d-100)
@@ -179,7 +179,7 @@ def level13():
         robot.drive(0,0)
 
 
-list_ = [['level1()', 0],['level2()', 0],['level3()', 0],['level4()', 0],['level5()', 0],['level6()', 0],['level7()', 0],['level8()', 0],['level9()',0],['level10()', 0],['level11()', 0],['level12()', 0],['level11()', 0],['level13()', 0]]
+list_ = [['level1()', 0],['level2()', 0],['level3()', 0],['level4()', 0],['level5()', 0],['level6(1)', 0],['level6(-1)', 0],['level7()', 0],['level8()', 0],['level9()',0],['level10()', 0],['level11()', 0],['level12()', 0],['level11()', 0],['level13()', 0]]
 
 while True:
     if not touch.pressed():
